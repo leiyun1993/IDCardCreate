@@ -1,15 +1,1 @@
-# IDCardCreate
-生成身份证，身份证号码校验\<br /\>
-###1、生成身份证
-依次选择省-市-县-生日后点击即可生成身份证号码。
-关于15~17位是判断统一地区时间不同的小孩和性别，不是强校验的，随机生成即可。
-理论上顺序码的奇数分配给男性，偶数分配给女性。
-![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/01.jpg)
-![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/02.jpg)
-![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/03.jpg)
-![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/04.jpg)
-###2、身份证号码校验
-身份证校验是直接用的别人的代码，主要是为了判断生成身份证的有效性
-![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/05.jpg)
-![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/06.jpg)
-####3、给大家推荐Demo中使用的日历控件：[material-calendarview](https://github.com/prolificinteractive/material-calendarview)
+<pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'Consolas';font-size:12.0pt;"># IDCardCreate<br /><span style="font-family:'宋体';">生成身份证，身份证号码校验<br /></span>###1<span style="font-family:'宋体';">、生成身份证<br /></span><span style="font-family:'宋体';">依次选择省</span>-<span style="font-family:'宋体';">市</span>-<span style="font-family:'宋体';">县</span>-<span style="font-family:'宋体';">生日后点击即可生成身份证号码。<br /></span><span style="font-family:'宋体';">关于</span>15~17<span style="font-family:'宋体';">位是判断统一地区时间不同的小孩和性别，不是强校验的，随机生成即可。<br /></span><span style="font-family:'宋体';">理论上顺序码的奇数分配给男性，偶数分配给女性。<br /></span>![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/01.jpg)<br />![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/02.jpg)<br />![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/03.jpg)<br />![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/04.jpg)<br />###2<span style="font-family:'宋体';">、身份证号码校验<br /></span><span style="font-family:'宋体';">身份证校验是直接用的别人的代码，主要是为了判断生成身份证的有效性<br /></span>![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/05.jpg)<br />![image](https://github.com/leiyun1993/IDCardCreate/raw/master/image/06.jpg)<br />####3<span style="font-family:'宋体';">、给大家推荐</span>Demo<span style="font-family:'宋体';">中使用的日历控件：</span>[material-calendarview](https://github.com/prolificinteractive/material-calendarview)<br /></pre>
