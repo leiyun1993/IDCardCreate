@@ -54,13 +54,42 @@
             android:paddingTop="5dp"
             android:text="生成身份证号" />
 
-        <TextView
-            android:id="@+id/id_card"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="身份证号："
-            android:textIsSelectable="true" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingTop="16dp"
+                android:text="身份证号："
+                android:textIsSelectable="true" />
+
+            <TextView
+                android:id="@+id/id_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                android:textIsSelectable="true" />
+
+            <Button
+                android:id="@+id/btn_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="12dp"
+                android:paddingBottom="5dp"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:text="复制" />
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"

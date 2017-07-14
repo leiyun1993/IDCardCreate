@@ -1,5 +1,7 @@
 package com.leiyun.idcardcreate;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -34,6 +36,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 类名：MainActivity
+ * 描述：
+ * 创建人：Yun.Lei on 2017/7/12
+ * 修改人：
+ * 修改时间：
+ * 修改备注：
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView province;
@@ -66,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCreate = (Button) findViewById(R.id.btn_create);
         btnCheck = (Button) findViewById(R.id.btn_check);
         editText = (TextInputEditText) findViewById(R.id.id_card_input);
+        findViewById(R.id.btn_copy).setOnClickListener(this);
         province.setOnClickListener(this);
         city.setOnClickListener(this);
         district.setOnClickListener(this);
@@ -107,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     String areaCode = getAreaCode(districtName);
                     String randomStr = String.valueOf((int) (Math.random() * 900 + 100));  //15~16位是判断同一地区出生的不同小孩，第17位是判断性别不是强校验，随机生成即可
-                    idCard.setText(String.format("身份证号：%s%s%s%s", areaCode, dateStr, randomStr, getParityBit(areaCode + dateStr + randomStr)));
+                    idCard.setText(String.format("%s%s%s%s", areaCode, dateStr, randomStr, getParityBit(areaCode + dateStr + randomStr)));
                 }
                 break;
             case R.id.btn_check:
@@ -119,9 +130,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     showTips("请输入需要校验的身份证");
                 }
                 break;
+            case R.id.btn_copy:
+                if (!TextUtils.isEmpty(this.idCard.getText())) {
+                    ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+                    cm.setPrimaryClip(ClipData.newPlainText(null, this.idCard.getText()));
+                    showTips("已复制到剪切板");
+                } else {
+                    showTips("请先生成身份证号");
+                }
+                break;
         }
     }
 
+    /**
+     * 根据前17位号码生成最后一位校验码
+     *
+     * @param cardCode17 身份证前17位
+     * @return
+     */
     private char getParityBit(String cardCode17) {
         final char[] cs = cardCode17.toUpperCase().toCharArray();
         int power = 0;
@@ -160,7 +186,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showTips(String text) {
-        Snackbar.make(rootView, text, Snackbar.LENGTH_SHORT).show();
+        final Snackbar bar = Snackbar.make(rootView, text, Snackbar.LENGTH_SHORT);
+        bar.setAction("确定", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bar.dismiss();
+            }
+        });
+        bar.show();
     }
 
     private void showProvinceDialog() {
@@ -330,6 +363,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * 从文件中读取json字符串
+     *
+     * @param context
+     * @param fileName
+     * @return
+     */
     public static String getFromAssets(Context context, String fileName) {
         StringBuffer result = new StringBuffer();
         InputStreamReader inputReader = null;
